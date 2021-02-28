@@ -23,6 +23,7 @@ import { notFound } from "./middlewares/not_found";
 // ----------------------------------
 import login from "./routes/login";
 import user from "./routes/user";
+import film from "./routes/film";
 import graphql from "./routes/graphql";
 import settings from "./routes/setting";
 import confirms from "./routes/confirms";
@@ -68,6 +69,7 @@ app.set("view engine", "ejs");
 // ----------------------------------
 app.use("/api/v1/logins", login);
 app.use("/api/v1/users", user);
+app.use("/api/v1/films", film);
 app.use("/api/v1/confirms", confirms);
 app.use("/api/v1/settings", settings);
 app.use("/graphql*", graphql);

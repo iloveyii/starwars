@@ -28,3 +28,12 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
 });
+
+/**
+ 
+curl \
+-X POST \
+-H "Content-Type: application/json" \
+--data '{ "query": "{ films { title release_date } } " }' \
+http://localhost:4000/
+ */

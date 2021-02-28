@@ -52,9 +52,7 @@ export const getLoggedInUser = async (req: any) => {
 
 export const getResetPasswordMessage = (hash: string) => {
   return `
-    Välkommen till Hantverkshjalpenonline,
-    Ditt konto har nu skapats.
-    Vänligen följ länken nedan för att skapa dina inloggningsuppgifter.
+    Välkommen till ABC,
     ${API_URL}:${WEB_PORT}/create-new-password/${hash}`;
 };
 
