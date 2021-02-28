@@ -1,32 +1,12 @@
 import React from "react";
-import {
-  Container,
-  Paper,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Button,
-  CircularProgress,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { Container } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
-import IconTextField from "../Controls/IconTextField";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import HomeWorkOutlinedIcon from "@material-ui/icons/HomeWorkOutlined";
-import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { ObjectID } from "bson";
-import ColoredLinearProgress from "../Controls/LineProgress";
+
 import List from "./List";
-
 import models from "../../store";
-
 import "./style.css";
-import { CenterFocusStrong } from "@material-ui/icons";
 
 const styles = (theme) => ({
   root: {
@@ -70,7 +50,19 @@ class Film extends React.Component {
     };
   }
 
-  setForm(props) {}
+  setForm(props) {
+    const { films } = props;
+
+    if (films && Array.isArray(films) && films.length > 0) {
+      // Chronological order
+      films.sort((a, b) => {
+        a = Number(a.release_date.split("-").join(""));
+        b = Number(b.release_date.split("-").join(""));
+        return a > b ? 1 : a < b ? -1 : 0;
+      });
+      this.setState({ films });
+    }
+  }
 
   componentDidMount() {
     this.setForm(this.props);
@@ -87,7 +79,7 @@ class Film extends React.Component {
     return (
       <div className={classes.main}>
         <Container maxWidth="md">
-          <List />
+          <List films={films} />
         </Container>
       </div>
     );
@@ -99,8 +91,7 @@ class Film extends React.Component {
  * @param state
  */
 const mapStateToProps = (state) => ({
-  form: state.logins.form,
-  actions: state.logins.actions,
+  films: state.films.list,
 });
 
 /**
@@ -108,7 +99,7 @@ const mapStateToProps = (state) => ({
  * @type {{readAction: UserReadAction}}
  */
 const mapActionsToProps = {
-  createAction: models.logins.actions.create,
+  readAction: models.films.actions.read,
 };
 
 export default withStyles(styles)(

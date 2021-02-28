@@ -7,6 +7,7 @@ import { makeStyles } from "@material-ui/core";
 import { apiServer } from "../common/constants";
 import Users from "../components/Users";
 import Film from "../components/Film";
+import View from "../components/Film/View";
 import Login from "../components/Login";
 import Setting from "../components/Setting";
 import Ni from "../components/Ni";
@@ -84,6 +85,7 @@ function Dashboard(props) {
         <Route exact path={`/`} component={Login} />
         <Route exact path={`/users`} component={Users} />
         <Route exact path={`/films`} component={Film} />
+        <Route exact path={`/films/view/:id`} component={View} />
         <Route exact path={`/settings`} component={Setting} />
         <Route component={Ni} />
       </Switch>
