@@ -6,6 +6,7 @@ import io from "socket.io-client";
 import { makeStyles } from "@material-ui/core";
 import { apiServer } from "../common/constants";
 import Users from "../components/Users";
+import Film from "../components/Film";
 import Login from "../components/Login";
 import Setting from "../components/Setting";
 import Ni from "../components/Ni";
@@ -82,6 +83,7 @@ function Dashboard(props) {
       <Switch>
         <Route exact path={`/`} component={Login} />
         <Route exact path={`/users`} component={Users} />
+        <Route exact path={`/films`} component={Film} />
         <Route exact path={`/settings`} component={Setting} />
         <Route component={Ni} />
       </Switch>

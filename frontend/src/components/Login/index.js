@@ -99,7 +99,7 @@ class Login extends React.Component {
     this.setState({ start_login: false });
 
     if (this.authenticated(id, actions) === true) {
-      this.props.history.push("/users");
+      this.props.history.push("/films");
     }
     /*
     if (this.authenticated(nextProps)) {

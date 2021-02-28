@@ -45,7 +45,7 @@ class Model {
   }
 
   getIdForForm(form) {
-    let id = new ObjectID().toString();
+    let id = ""; // new ObjectID().toString();
     if (form instanceof FormData) {
       if (form.get("id")) {
         id = form.get("id");

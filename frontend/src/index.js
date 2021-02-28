@@ -102,7 +102,7 @@ if (true || ENVIRONMENT.DEV) {
   for (let i = 0; i < Object.keys(models).length; i++) {
     const model = models[Object.keys(models)[i]];
     // console.log("Model : ", model.name);
-    // store.dispatch(model.actions.read({}));
+    store.dispatch(model.actions.read({}));
   }
 }
 
