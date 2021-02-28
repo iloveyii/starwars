@@ -22,14 +22,8 @@ async function getCharacters(characters) {
   });
 
   const people = await Promise.all(names);
-  console.log('People: ', people);
-  return names;
-}
-
-function myPromise(promise) {
-  return new Promise((resolve, reject) => {
-    resolve(promise);
-  });
+  // console.log('People: ', people);
+  return people;
 }
 
 async function getFilms() {
@@ -47,6 +41,7 @@ async function getFilms() {
     });
 
     const allPromises = await Promise.all(filmsCharacters);
+    console.log('allPromises: ', allPromises);
   }
   return films;
 }
