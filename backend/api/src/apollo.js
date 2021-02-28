@@ -28,6 +28,13 @@ export const typeDefs = gql`
   type Film {
     title: String
     release_date: String
+    characters: [Character!]
+    # resolver: () => { return {title:..., release_date:..., characters:...}}
+  }
+
+  type Character {
+    name: String
+    # resolver: (parent) => { return { parent.characters}}
   }
 
   # A library has a branch and books
@@ -40,6 +47,8 @@ export const typeDefs = gql`
   type Book {
     title: String!
     author: Author!
+    # resolver : (parent) => { return {name: parent.author}}
+    # data supplied to above : {title:..., author:..., branch:...}
   }
 
   # An author has a name
@@ -90,7 +99,7 @@ export const resolvers = {
   // We don't need to define one.
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server = new ApolloServer({ typeDefs, resolvers, introspection: true, playground: true });
 
 server.listen().then(({ url }) => {
   console.log(`🚀  Server ready at ${url}`);
