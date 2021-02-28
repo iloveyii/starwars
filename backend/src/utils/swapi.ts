@@ -7,9 +7,14 @@ export const BASE_URL_ENDPOINT = "https://swapi.dev/api/";
 
 // Get a single character from api, name
 async function getCharacter(url: string) {
-  const data = await axios.get(url).then((response) => {
-    return response.data;
-  });
+  const data = await axios
+    .get(url)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error: any) => {
+      console.error("Error occurred in fetching Character fro api");
+    });
   const name = data && data.name ? data.name : "";
   return name;
 }
@@ -30,7 +35,15 @@ async function getCharacters(title: string, characters: any[]) {
 // Get all films from api
 async function getFilms() {
   const filmsUrl = `${BASE_URL_ENDPOINT}films`;
-  const { data } = await axios.get(filmsUrl);
+
+  let data: any = "";
+  try {
+    data = await axios.get(filmsUrl);
+    data = data.data;
+  } catch (error) {
+    console.error("Error occurred in fetching Character fro api");
+  }
+
   let films =
     data && data.results && Array.isArray(data.results) ? data.results : [];
   // films = films.slice(0, 3);
