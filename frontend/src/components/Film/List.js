@@ -1,36 +1,21 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import "./style.css";
 
-const styles = (theme) => ({
-  card: {
-    // marginTop: theme.spacing(1),
-    textAlign: "center",
-    border: "1px solid grey",
-    padding: theme.spacing(3),
-    marginBottom: theme.spacing(1),
-    display: "flex",
-    flexDirection: "column",
-  },
-  title: {
-    flex: 1,
-    border: "none",
-  },
-  release_date: {
-    flex: 1,
-    textAlign: "center",
-  },
-});
+const styles = (theme) => ({});
 
 const useStyles = makeStyles((theme) => styles(theme));
 
 const Card = ({ film, i }) => {
   const classes = useStyles();
   return (
-    <Link to={`/films/view/${i}`} className={classes.card}>
-      <h2 className={classes.title}>{film.title}</h2>
-      <h3 className={classes.title}>{film.release_date}</h3>
-    </Link>
+    <div className="card">
+      <Link to={`/films/view/${i}`} className={classes.card}>
+        <h2 className="title">{film.title}</h2>
+        <h3 className="release_date">{film.release_date}</h3>
+      </Link>
+    </div>
   );
 };
 

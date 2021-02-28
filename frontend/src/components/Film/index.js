@@ -6,36 +6,16 @@ import { connect } from "react-redux";
 
 import List from "./List";
 import models from "../../store";
+import Loading from "../Controls/Loading";
 import "./style.css";
 
 const styles = (theme) => ({
-  root: {
-    // marginTop: theme.spacing(1),
+  main: {
     textAlign: "center",
-    "& .MuiCardMedia-root": {
-      margin: theme.spacing(2),
-    },
-  },
-  outer: {
     display: "flex",
     flexDirection: "column",
-    border: "none",
-  },
-  details: {
-    display: "flex",
-    width: "100%",
-    flexDirection: "column",
-    textAlign: "center",
-  },
-  content: {
-    flex: "1 0 auto",
-  },
-  cover: {
-    width: 151,
-  },
-  icon: {
-    display: "flex",
-    alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
@@ -75,9 +55,10 @@ class Film extends React.Component {
   render() {
     const { classes } = this.props;
     const { films } = this.state;
+    if (films.length === 0) return <Loading />;
 
     return (
-      <div className={classes.main}>
+      <div className="container">
         <Container maxWidth="md">
           <List films={films} />
         </Container>

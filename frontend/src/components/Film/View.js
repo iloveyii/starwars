@@ -1,9 +1,11 @@
 import React from "react";
+import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { withStyles } from "@material-ui/styles";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
+import Loading from "../Controls/Loading";
 import models from "../../store";
 
 const styles = (theme) => ({
@@ -24,6 +26,10 @@ const styles = (theme) => ({
     flex: 1,
     textAlign: "center",
   },
+  character: {
+    columnCount: 3,
+    columnGap: "25px",
+  },
 });
 
 const useStyles = makeStyles((theme) => styles(theme));
@@ -31,10 +37,17 @@ const useStyles = makeStyles((theme) => styles(theme));
 const Card = ({ film, i }) => {
   const classes = useStyles();
   return (
-    <Link to={`/films/view/${i}`} className={classes.card}>
+    <div to={`/films/view/${i}`} className={classes.card}>
+      <Link to="/films" variant="primary">
+        Close
+      </Link>
       <h2 className={classes.title}>{film.title}</h2>
-      <h3 className={classes.title}>{film.release_date}</h3>
-    </Link>
+      <h3 className={classes.title}>Characters</h3>
+      <div className={classes.character}>
+        {film.characters &&
+          film.characters.map((character, i) => <p key={i}>{character}</p>)}
+      </div>
+    </div>
   );
 };
 
@@ -74,11 +87,13 @@ class View extends React.Component {
   render() {
     const { classes } = this.props;
     const { films, i } = this.state;
+    if (films.length === 0) return <Loading />;
 
     return (
-      <div className={classes.main}>
-        <h1>View</h1>
-        {films && films[i] && <Card film={films[i]} />}
+      <div className="container">
+        <Container maxWidth="md">
+          {films && films[i] && <Card film={films[i]} />}
+        </Container>
       </div>
     );
   }

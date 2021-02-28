@@ -1,0 +1,59 @@
+.container {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: green;
+}
+
+.content {
+  width: 80%;
+  background-color: orange;
+}
+
+.card {
+  text-align: center;
+  border: 1px solid grey;
+  padding: 12px;
+  margin-bottom: 6px;
+  display: inline-block;
+  flex-direction: column;
+  min-width: 300px;
+  margin: 6px;
+  background-color: blue;
+  border-radius: 5px;
+}
+.title {
+  display: block;
+  border: none;
+}
+.release_date {
+  display: block;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 1140px) {
+  body {
+    background-color: blue;
+  }
+
+  .card {
+    display: flex;
+  }
+
+  .title {
+    flex: 1;
+    border: none;
+  }
+  .release_date {
+    flex: 1;
+    text-align: center;
+    background-color: red;
+  }
+}
