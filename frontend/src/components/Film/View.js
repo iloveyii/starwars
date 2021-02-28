@@ -41,7 +41,7 @@ const Card = ({ film, i }) => {
   return (
     <div className={classes.card}>
       <div className="controls">
-        <Link className="button" to="/films" variant="primary">
+        <Link className="button" to="/" variant="primary">
           Close
         </Link>
       </div>

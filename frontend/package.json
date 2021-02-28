@@ -8,8 +8,6 @@
     "_build:dev": "webpack --mode development --progress",
     "_build:prod": "webpack --mode production --progress",
     "build": "npm run _build:prod",
-    "post_build:dev2": "cp public/manifest.json dist/ & cp public/images dist/ -Rf",
-    "post_build:prod": "cp public/images dist/ -Rf && cp public/css dist/ -Rf && cp public/js dist/ -Rf",
     "serve": "serve -s dist",
     "browserslist": "browserslist 'last 1 version, >1%' "
   },
@@ -59,6 +57,7 @@
     "css-loader": "^4.3.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "html-webpack-plugin": "^4.5.0",
+    "serve": "^11.3.2",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^4.44.2",

@@ -8,6 +8,8 @@ A small react/node app to show movies of start wars from an open API.
 
 ## Installations
 
+- Please adjust .env file (e.g API_URL if it is not localhost)
+
 ### backend
 
 - cd to backend
@@ -21,3 +23,4 @@ A small react/node app to show movies of start wars from an open API.
 - copy .env-example to .env
 - `npm install`
 - `npm start`
+- if you want to build frontend run `npm run build`, you can serve using apache/nginx or `npm run serve`
