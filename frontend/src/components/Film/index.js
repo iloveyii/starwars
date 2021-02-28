@@ -58,7 +58,7 @@ class Film extends React.Component {
     if (films.length === 0) return <Loading />;
 
     return (
-      <div className="container">
+      <div className="wrapper">
         <Container maxWidth="md">
           <List films={films} />
         </Container>

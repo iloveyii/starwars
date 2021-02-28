@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => styles(theme));
 const Card = ({ film, i }) => {
   const classes = useStyles();
   return (
-    <div to={`/films/view/${i}`} className={classes.card}>
-      <Link to="/films" variant="primary">
+    <div className={classes.card}>
+      <Link className="button" to="/films" variant="primary">
         Close
       </Link>
       <h2 className={classes.title}>{film.title}</h2>
@@ -90,7 +90,7 @@ class View extends React.Component {
     if (films.length === 0) return <Loading />;
 
     return (
-      <div className="container">
+      <div className="wrapper">
         <Container maxWidth="md">
           {films && films[i] && <Card film={films[i]} />}
         </Container>
