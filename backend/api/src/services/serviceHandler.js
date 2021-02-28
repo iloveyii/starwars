@@ -26,6 +26,12 @@ async function getCharacters(characters) {
   return names;
 }
 
+function myPromise(promise) {
+  return new Promise((resolve, reject) => {
+    resolve(promise);
+  });
+}
+
 async function getFilms() {
   const filmsUrl = `${BASE_URL_ENDPOINT}films`;
   const { data } = await axios.get(filmsUrl);
@@ -34,15 +40,13 @@ async function getFilms() {
   // Fetch people
   if (films.length > 0) {
     console.log('length', films.length);
-    /* const newFilms = films.map(film => {
-      return {
-        title: film.title,
-        release_date: film.release_date,
-        characters: async () => await getCharacters(film.characters),
-      };
-    }); */
+    const filmsCharacters = [];
+    films.forEach(film => {
+      const characters = getCharacters(film.characters);
+      filmsCharacters.push(characters);
+    });
 
-    await getCharacters(films[0].characters);
+    const allPromises = await Promise.all(filmsCharacters);
   }
   return films;
 }
