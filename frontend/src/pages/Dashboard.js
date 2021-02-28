@@ -82,9 +82,9 @@ function Dashboard(props) {
   return (
     <BrowserRouter basename="/">
       <Switch>
-        <Route exact path={`/`} component={Login} />
+        <Route exact path={`/login`} component={Login} />
         <Route exact path={`/users`} component={Users} />
-        <Route exact path={`/films`} component={Film} />
+        <Route exact path={`/`} component={Film} />
         <Route exact path={`/films/view/:id`} component={View} />
         <Route exact path={`/settings`} component={Setting} />
         <Route component={Ni} />
