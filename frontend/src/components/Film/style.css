@@ -1,14 +1,19 @@
-html,
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+html,
+body {
   font-family: "Arial", Courier, monospace;
+  height: 100vh;
+  width: 100vw;
 }
 
 .wrapper {
   display: flex;
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: center;
   background-color: gray;
@@ -42,6 +47,7 @@ body {
 .character {
   column-count: 3;
   column-gap: 25px;
+  text-align: left;
 }
 
 a {

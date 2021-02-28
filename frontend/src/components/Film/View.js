@@ -90,13 +90,12 @@ class View extends React.Component {
   }
 
   render() {
-    const { classes } = this.props;
     const { films, i } = this.state;
     if (films.length === 0) return <Loading />;
 
     return (
       <div className="wrapper">
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           {films && films[i] && <Card film={films[i]} />}
         </Container>
       </div>

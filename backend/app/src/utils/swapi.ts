@@ -5,6 +5,7 @@
 import axios from "axios";
 export const BASE_URL_ENDPOINT = "https://swapi.dev/api/";
 
+// Get a single character from api, name
 async function getCharacter(url: string) {
   const data = await axios.get(url).then((response) => {
     return response.data;
@@ -13,6 +14,7 @@ async function getCharacter(url: string) {
   return name;
 }
 
+// Get all characters of a specifig move
 async function getCharacters(title: string, characters: any[]) {
   console.log("Characters : ", characters.length);
   const names: any = [];
@@ -25,12 +27,13 @@ async function getCharacters(title: string, characters: any[]) {
   return { title, characters: people };
 }
 
+// Get all films from api
 async function getFilms() {
   const filmsUrl = `${BASE_URL_ENDPOINT}films`;
   const { data } = await axios.get(filmsUrl);
   let films =
     data && data.results && Array.isArray(data.results) ? data.results : [];
-  films = films.slice(0, 2);
+  // films = films.slice(0, 3);
   // Fetch people
   if (films.length > 0) {
     console.log("length", films.length);

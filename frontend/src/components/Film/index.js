@@ -59,7 +59,7 @@ class Film extends React.Component {
 
     return (
       <div className="wrapper">
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <List films={films} />
         </Container>
       </div>
