@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 
 import Loading from "../Controls/Loading";
 import models from "../../store";
+import "./style.css";
 
 const styles = (theme) => ({
   card: {
@@ -17,6 +18,8 @@ const styles = (theme) => ({
     marginBottom: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
+    backgroundColor: "lightgrey",
+    borderRadius: "5px",
   },
   title: {
     flex: 1,
@@ -26,9 +29,8 @@ const styles = (theme) => ({
     flex: 1,
     textAlign: "center",
   },
-  character: {
-    columnCount: 3,
-    columnGap: "25px",
+  controls: {
+    textAlign: "right",
   },
 });
 
@@ -38,12 +40,15 @@ const Card = ({ film, i }) => {
   const classes = useStyles();
   return (
     <div className={classes.card}>
-      <Link className="button" to="/films" variant="primary">
-        Close
-      </Link>
+      <div className="controls">
+        <Link className="button" to="/films" variant="primary">
+          Close
+        </Link>
+      </div>
+
       <h2 className={classes.title}>{film.title}</h2>
       <h3 className={classes.title}>Characters</h3>
-      <div className={classes.character}>
+      <div className="character">
         {film.characters &&
           film.characters.map((character, i) => <p key={i}>{character}</p>)}
       </div>
