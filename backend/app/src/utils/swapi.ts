@@ -2,56 +2,57 @@
  * Service for getting exchange data
  * from an external API
  */
-import axios from 'axios';
-export const BASE_URL_ENDPOINT = 'https://swapi.dev/api/';
+import axios from "axios";
+export const BASE_URL_ENDPOINT = "https://swapi.dev/api/";
 
-async function getCharacter(url) {
-  const data = await axios.get(url).then(response => {
+async function getCharacter(url: string) {
+  const data = await axios.get(url).then((response) => {
     return response.data;
   });
-  const name = data && data.name ? data.name : '';
+  const name = data && data.name ? data.name : "";
   return name;
 }
 
-async function getCharacters(title, characters) {
-  console.log('Characters : ', characters.length);
-  const names = [];
-  characters.forEach(url => {
+async function getCharacters(title: string, characters: any[]) {
+  console.log("Characters : ", characters.length);
+  const names: any = [];
+  characters.forEach((url: string) => {
     const name = getCharacter(url);
     names.push(name);
   });
 
   const people = await Promise.all(names);
-  // console.log('People: ', people);
   return { title, characters: people };
 }
 
 async function getFilms() {
   const filmsUrl = `${BASE_URL_ENDPOINT}films`;
   const { data } = await axios.get(filmsUrl);
-  let films = data && data.results && Array.isArray(data.results) ? data.results : [];
+  let films =
+    data && data.results && Array.isArray(data.results) ? data.results : [];
   films = films.slice(0, 2);
   // Fetch people
   if (films.length > 0) {
-    console.log('length', films.length);
-    const filmsCharacters = [];
-    films.forEach(film => {
+    console.log("length", films.length);
+    const filmsCharacters: any = [];
+    films.forEach((film: any) => {
       const characters = getCharacters(film.title, film.characters);
       filmsCharacters.push(characters);
     });
 
     const allPromises = await Promise.all(filmsCharacters);
-    films.map(film => {
-      const promise = allPromises.find(promise => promise.title === film.title);
-      // console.log('title: ', film.title, promise);
+    films.map((film: any) => {
+      const promise: any = allPromises.find(
+        (promise: any) => promise.title === film.title
+      );
       if (promise) {
         film.characters = promise.characters ? promise.characters : [];
       } else {
-        console.log('no promise');
+        console.log("no promise");
       }
     });
   }
-  const filtered = films.map(film => ({
+  const filtered = films.map((film: any) => ({
     title: film.title,
     release_date: film.release_date,
     characters: film.characters,

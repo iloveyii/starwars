@@ -7,6 +7,7 @@ import { getResetPasswordMessage, getResetPasswordLink } from "../utils";
 import Mongo from "../models/base/Mongo";
 import axios from "axios";
 import gql from "graphql-tag";
+import { getFilms } from "../utils/swapi";
 
 // @desc   Get all from Model
 // @route  GET /api/v1/films
@@ -15,18 +16,8 @@ export const readFilms = async (
   res: Response,
   next: NextFunction
 ) => {
-  const query = { query: "{ films { title release_date } } " };
-  /* const films = await axios
-    .post("http://localhost:4000/", query)
-    .then((response: any) => response.data.data)
-    .catch((err: any) => {
-      console.error("Error occurred: ", err.message);
-    }); */
-
-  const filmsString = `
-    [{"title":"A New Hope","release_date":"1977-05-25"},{"title":"The Empire Strikes Back","release_date":"1977-05-17"},{"title":"Return of the Jedi","release_date":"1973-05-25"},{"title":"The Phantom Menace","release_date":"1999-05-19"},{"title":"Attack of the Clones","release_date":"2002-05-16"},{"title":"Revenge of the Sith","release_date":"2005-05-19"}]   
-    `;
-  return res.status(200).send({ success: true, data: JSON.parse(filmsString) });
+  const films = await getFilms();
+  return res.status(200).send({ success: true, data: films });
 };
 
 // @desc   Get a Model
