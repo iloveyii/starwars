@@ -96,7 +96,7 @@ function('promise1', characters) {
 ### The Redux wrapper and Models - frontend
 
 - Working with the redux is as easy as creating one file in src/model and writing attributes of the model eg. title, release_date
-- Then goto src/store and add its entry in redux store, like others. You are now connected to redux store, all your actions, action types, reducers, sagas/api are in place. It also gives validation of the form/model.
+- Then goto src/store/index.js and add its entry in redux store, like others. You are now connected to redux store, all your actions, action types, reducers, sagas/api are in place. It also gives validation of the form/model.
 - By default all read actions are called at start of app (in browsers), check dev tools network tab
 
 ### The Node MVC framework - backend
