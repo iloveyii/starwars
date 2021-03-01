@@ -10,7 +10,7 @@ A small react/node app to show movies of star wars from an open API.
 
 ## DEMO
 
-- [demo](http://172.104.140.88:9900/)
+- [demo](http://startwars.ddns.net:9900/)
 
 ## Installations
 
