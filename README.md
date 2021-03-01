@@ -25,7 +25,9 @@ A small react/node app to show movies of start wars from an open API.
 - `npm start`
 - if you want to build frontend run `npm run build`, you can serve using apache/nginx or `npm run serve`
 
-## Promise all
+## Tips and tricks
+
+### Promise all
 
 - It is straight forward to resolve array of promises in js by putting them in an array and then calling `Promise.all(arrPromises)`
 - But it was tricky to do this with array of arrays containing promises
