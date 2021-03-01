@@ -1,6 +1,6 @@
 # Start Wars
 
-A small react/node app to show movies of start wars from an open API.
+A small react/node app to show movies of star wars from an open API.
 
 - The application contains two sub folders, backend and frontend
 - Backend is written in node and provide api data
