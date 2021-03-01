@@ -82,3 +82,8 @@ function('promise1', characters) {
     return { title, characters: people };
     }
 ```
+
+### Issues
+
+- Error in frontend : `ENOSPC: System limit for number of file watchers reache`
+- Solution: `echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p`
