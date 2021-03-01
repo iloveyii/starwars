@@ -93,6 +93,19 @@ function('promise1', characters) {
     }
 ```
 
+### The Redux wrapper and Models - frontend
+
+- Working with the redux is as easy as creating one file in src/model and writing attributes of the model eg. title, release_date
+- Then goto src/store and add its entry in redux store, like others. You are now connected to redux store, all your actions, action types, reducers, sagas/api are in place. It also gives validation of the form/model.
+- By default all read actions are called at start of app (in browsers), check dev tools network tab
+
+### The Node MVC framework - backend
+
+- You need to create a model at src/models/Film.ts - it is very similar to the model in frontend above
+- Create a controller with a few lines of code at src/contollers/film.ts - It is very straight forward in the code already - CRUD functions only and if you need anything more
+- Create a route to your controller at src/routes/film.ts - simply express router
+- Plug the new routes in the src/app in the section : // Routes Import. Your backend API is ready
+
 ### Issues
 
 - Error in frontend : `ENOSPC: System limit for number of file watchers reache`
