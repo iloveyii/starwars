@@ -6,6 +6,12 @@ A small react/node app to show movies of star wars from an open API.
 - Backend is written in node and provide api data
 - Frontend is written in React 16.13 and is user UI.
 
+![app](https://github.com/iloveyii/iot-lab/blob/master/images/thingy.jpg)
+
+## DEMO
+
+- [demo](http://172.104.140.88:9900/)
+
 ## Installations
 
 - Please adjust .env file (e.g API_URL if it is not localhost)
@@ -26,6 +32,10 @@ A small react/node app to show movies of star wars from an open API.
 - if you want to build frontend run `npm run build`, you can serve using apache/nginx or `npm run serve`
 
 ## Tips and tricks
+
+### Webserver
+
+- We use the same node API sever for both api requests and serving the (build / static files) dist directory (frontend/dist/) of React app
 
 ### Promise all
 
