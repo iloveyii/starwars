@@ -104,7 +104,7 @@ function('promise1', characters) {
 - You need to create a model at src/models/Film.ts - it is very similar to the model in frontend above
 - Create a controller with a few lines of code at src/contollers/film.ts - It is very straight forward in the code already - CRUD functions only and if you need anything more
 - Create a route to your controller at src/routes/film.ts - simply express router
-- Plug the new routes in the src/app in the section : // Routes Import. Your backend API is ready
+- Plug the new routes in the src/app.ts in the section : // Routes Import. Your backend API is ready
 
 ### Issues
 
