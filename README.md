@@ -19,7 +19,7 @@ A small react/node app to show movies of start wars from an open API.
 
 ### frontend
 
-- cd to backend
+- cd to frontend
 - copy .env-example to .env
 - `npm install`
 - `npm start`
