@@ -6,7 +6,7 @@ A small react/node app to show movies of star wars from an open API.
 - Backend is written in node and provide api data
 - Frontend is written in React 16.13 and is user UI.
 
-![app](https://github.com/iloveyii/iot-lab/blob/master/images/thingy.jpg)
+![app](https://raw.githubusercontent.com/iloveyii/starwars/master/frontend/public/images/ss.png)
 
 ## DEMO
 
