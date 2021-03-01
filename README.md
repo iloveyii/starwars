@@ -65,6 +65,8 @@ function('promise1', characters) {
       filmsCharacters.push(characters);
     });
 
+    const allPromises = await Promise.all(filmsCharacters);
+    // ....
     // Get all characters of a specific movie
     async function getCharacters(title: string, characters: any[]) {
     console.log("Characters : ", characters.length);
