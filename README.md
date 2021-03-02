@@ -129,3 +129,5 @@ server {
 }
 
 ```
+
+- sudo certbot --nginx -d minsoft.se
