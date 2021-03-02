@@ -20,6 +20,12 @@ body {
   background-color: gray;
 }
 
+.container {
+  display: block;
+  margin: 0 24px;
+  padding: 0;
+}
+
 .content {
   width: 80%;
 }
@@ -27,15 +33,25 @@ body {
 .card {
   text-align: center;
   border: 1px solid grey;
-  padding: 12px;
-  margin-bottom: 6px;
+  padding: 0;
+  margin: 0;
   display: inline-block;
   flex-direction: column;
-  min-width: 300px;
-  margin: 6px;
-  background-color: rgb(15, 15, 80);
+  width: calc((100vw - 48px) / 4);
+  background-color: transparent;
   border-radius: 5px;
 }
+
+.card-body {
+  text-align: center;
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 10px;
+  display: block;
+  background-color: rgb(55, 55, 134);
+  border-radius: 5px;
+}
+
 .title {
   display: block;
   border: none;
@@ -72,7 +88,7 @@ a.button {
   }
 
   .card {
-    display: flex;
+    width: calc((100vw - 48px) / 1);
   }
 
   .title {

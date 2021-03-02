@@ -5,10 +5,12 @@ import "./style.css";
 const Card = ({ film, i }) => {
   return (
     <div className="card">
-      <Link to={`/films/view/${i}`}>
-        <h2 className="title">{film.title}</h2>
-        <h3 className="release_date">{film.release_date}</h3>
-      </Link>
+      <div className="card-body">
+        <Link to={`/films/view/${i}`}>
+          <h2 className="title">{film.title}</h2>
+          <h3 className="release_date">{film.release_date}</h3>
+        </Link>
+      </div>
     </div>
   );
 };
