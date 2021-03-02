@@ -8,7 +8,7 @@
     "_build:dev": "webpack --mode development --progress",
     "_build:prod": "webpack --mode production --progress",
     "build": "npm run _build:prod",
-    "postbuild": "cp public/icons dist/icons -Rf && cp public/.htaccess dist/.htaccess && cp public/manifest.json dist/manifest.json",
+    "postbuild": "cp public/images dist/ -Rf && cp public/.htaccess dist/.htaccess && cp public/manifest.json dist/manifest.json",
     "serve": "serve -s dist",
     "browserslist": "browserslist 'last 1 version, >1%' "
   },
