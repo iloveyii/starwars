@@ -95,9 +95,9 @@ class View extends React.Component {
 
     return (
       <div className="wrapper">
-        <Container maxWidth="lg">
+        <div className="container">
           {films && films[i] && <Card film={films[i]} />}
-        </Container>
+        </div>
       </div>
     );
   }

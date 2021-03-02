@@ -1,10 +1,13 @@
-/**
- * Service for getting exchange data
- * from an external API
- */
+import dotenv from "dotenv";
+
 import axios from "axios";
+
+/**
+ * Service for getting exchange data from an external API
+ */
 export const BASE_URL_ENDPOINT = "https://swapi.dev/api/";
-const DEBUG = true;
+dotenv.config({ path: ".env" });
+const DEBUG = process.env.NODE_ENV === "development";
 
 function log(...args: any) {
   if (DEBUG) {
