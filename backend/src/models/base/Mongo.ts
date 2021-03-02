@@ -32,7 +32,7 @@ class Mongo implements ModelI {
       this.data._id = this.data.id ? this.data.id : null;
     }
     // Make it object id
-    if (this.data._id) {
+    if (this.data._id && typeof this.data._id === "string") {
       this.data._id = new ObjectID(this.data._id);
     }
     this.data.isNewRecord ? (this.data.isNewRecord = false) : null;

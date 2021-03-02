@@ -4,9 +4,16 @@
  */
 import axios from "axios";
 export const BASE_URL_ENDPOINT = "https://swapi.dev/api/";
+const DEBUG = true;
 
+function log(...args: any) {
+  if (DEBUG) {
+    console.log(...args);
+  }
+}
 // Get a single character from api, name
 async function getCharacter(url: string) {
+  log("In Character : ", url);
   const data = await axios
     .get(url)
     .then((response) => {
@@ -16,12 +23,13 @@ async function getCharacter(url: string) {
       console.error("Error occurred in fetching Character fro api");
     });
   const name = data && data.name ? data.name : "";
+  log("In Character return: ", url, name);
   return name;
 }
 
 // Get all characters of a specifig move
 async function getCharacters(title: string, characters: any[]) {
-  console.log("Characters : ", characters.length);
+  log("Characters : ", characters.length);
   const names: any = [];
   characters.forEach((url: string) => {
     const name = getCharacter(url);
@@ -49,7 +57,7 @@ async function getFilms() {
   // films = films.slice(0, 3);
   // Fetch people
   if (films.length > 0) {
-    console.log("length", films.length);
+    log("length", films.length);
     const filmsCharacters: any = [];
     films.forEach((film: any) => {
       const characters = getCharacters(film.title, film.characters);
@@ -64,7 +72,7 @@ async function getFilms() {
       if (promise) {
         film.characters = promise.characters ? promise.characters : [];
       } else {
-        console.log("no promise");
+        log("no promise");
       }
     });
   }
