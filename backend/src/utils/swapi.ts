@@ -20,7 +20,7 @@ async function getCharacter(url: string) {
       return response.data;
     })
     .catch((error: any) => {
-      console.error("Error occurred in fetching Character fro api");
+      console.error("Error occurred in fetching Character from api: ", url);
     });
   const name = data && data.name ? data.name : "";
   log("In Character return: ", url, name);
