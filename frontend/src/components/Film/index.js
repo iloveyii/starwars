@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/styles";
 import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import List from "./List";
+import List from "./_List";
 import models from "../../store";
 import Loading from "../Controls/Loading";
 import "./style.css";
