@@ -10,7 +10,7 @@ A small react/node app to show movies of star wars from an open API.
 
 ## DEMO
 
-- [demo](http://startwars.ddns.net:9900/)
+- [demo](https://minsoft.se/)
 
 ## Installations
 
@@ -121,7 +121,7 @@ server {
     root /home/ubuntu/devs/starwars/frontend/dist;
     index index.html index.htm;
 
-    server_name 172.104.140.88;
+    server_name <ip>;
 
     location / {
         try_files $uri $uri/ =404;
@@ -130,4 +130,4 @@ server {
 
 ```
 
-- sudo certbot --nginx -d minsoft.se
+- sudo certbot --nginx -d site.se
