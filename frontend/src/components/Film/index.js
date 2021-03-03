@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 import List from "./_List";
 import models from "../../store";
 import Loading from "../Controls/Loading";
-import "./style.css";
 
 const styles = (theme) => ({
   main: {

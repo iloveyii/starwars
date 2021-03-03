@@ -7,7 +7,6 @@ import { connect } from "react-redux";
 
 import Loading from "../Controls/Loading";
 import models from "../../store";
-import "./style.css";
 
 const styles = (theme) => ({
   card: {
